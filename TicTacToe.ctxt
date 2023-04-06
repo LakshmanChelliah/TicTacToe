@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=TicTacToe
+comment0.text=\r\n\ A\ class\ modelling\ a\ tic-tac-toe\ (noughts\ and\ crosses,\ Xs\ and\ Os)\ game.\r\n\ \r\n\ @author\ Lynn\ Marshall\r\n\ @version\ November\ 8,\ 2012\r\n\ \r\n\ @author\ Lakshman\ Chelliah\r\n\ @version\ April\ 6th,\ 2023\r\n\ \r\n
+comment1.params=
+comment1.target=TicTacToe()
+comment1.text=\ \r\n\ Constructs\ a\ new\ Tic-Tac-Toe\ board.\r\n
+comment2.params=
+comment2.target=void\ clearBoard()
+comment2.text=\r\n\ Sets\ everything\ up\ for\ a\ new\ game.\ \ Marks\ all\ squares\ in\ the\ Tic\ Tac\ Toe\ board\ as\ empty,\r\n\ and\ indicates\ no\ winner\ yet,\ 9\ free\ squares\ and\ the\ current\ player\ is\ player\ X.\r\n
+comment3.params=
+comment3.target=void\ playGame()
+comment3.text=\r\n\ Plays\ one\ game\ of\ Tic\ Tac\ Toe.\r\n
+comment4.params=row\ col
+comment4.target=void\ selectSquare(int,\ int)
+comment5.params=row\ col
+comment5.target=boolean\ haveWinner(int,\ int)
+comment5.text=\r\n\ Returns\ true\ if\ filling\ the\ given\ square\ gives\ us\ a\ winner,\ and\ false\r\n\ otherwise.\r\n\r\n\ @param\ int\ row\ of\ square\ just\ set\r\n\ @param\ int\ col\ of\ square\ just\ set\r\n\ \r\n\ @return\ true\ if\ we\ have\ a\ winner,\ false\ otherwise\r\n
+numComments=6

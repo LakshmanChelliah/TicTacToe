@@ -26,7 +26,7 @@ public class TicTacToeFrame extends TicTacToe implements ActionListener {
     
     static TicTacToeFrame game;
 
-    private JFrame frame;
+    private static JFrame frame;
     private JPanel p = new JPanel();
 
     //Buttons for the TicTacToe Options
@@ -157,7 +157,7 @@ public class TicTacToeFrame extends TicTacToe implements ActionListener {
         }    
        
         frame.add(p);
-        frame.setVisible(true);
+        frame.setVisible(false);
         frame.pack();
        
    }
@@ -229,14 +229,15 @@ public class TicTacToeFrame extends TicTacToe implements ActionListener {
                 labelTurn.setText("TIE GAME");
                 JOptionPane.showMessageDialog(null, "TIE GAME","Game Over!", JOptionPane.INFORMATION_MESSAGE);
             } else { //Show Winner Name
-                labelTurn.setText( winner + " is the Winner!");
-                JOptionPane.showMessageDialog(null, winner + " is the Winner!","Game Over!", JOptionPane.INFORMATION_MESSAGE);
-
                 //See who wins and add to their score
-                if (winner.equals("X")){
+                if (winner == PLAYER_X){
                     xWins++; 
+                    labelTurn.setText( "X" + " is the Winner!");
+                    JOptionPane.showMessageDialog(null, "X" + " is the Winner!","Game Over!", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     oWins++;
+                    labelTurn.setText( "O" + " is the Winner!");
+                    JOptionPane.showMessageDialog(null, "O" + " is the Winner!","Game Over!", JOptionPane.INFORMATION_MESSAGE);
                 }
 
             }
@@ -254,7 +255,7 @@ public class TicTacToeFrame extends TicTacToe implements ActionListener {
      * @param int y location
      * 
      */
-    public void getInputforGame(int x, int y){
+    private void getInputforGame(int x, int y){
         //X Coord
         int xfinal = 0;
         //Y Coord
@@ -282,37 +283,50 @@ public class TicTacToeFrame extends TicTacToe implements ActionListener {
     /**
      * Resets game for the next round
      */
-    public void resetGame(){
+    private void resetGame(){
         //Resets all Values to be ready for the next round
-        labelTurn.setText("Current Turn: X");
-        newGame();
+        
+        
+        
         for (int i = 0; i < 9; i++){
             buttons[i].setEnabled(true);
             buttons[i].setIcon(null);
         }
         isXTurn = true;
         labelScore.setText("X Wins: " + xWins + String.format("%-20s","") +  "O Wins: " + oWins);
+        labelTurn.setText("Current Turn: X");
+        playGame();
     }
 
     /**
      * Resets parent class logic
      */
-    public static void newGame(){
+    private static void newGame(){
         //Clears logic
         game.clearBoard();
+        
+    }
     
+    
+    private void startGame(){
+        frame.setVisible(true);
+    }
+    
+    public void playGame()
+    {
+        clearBoard();
+        frame.setVisible(true);
+        // clear the board
+    } 
+    
+    public static void main(String[] args) {
+        game = new TicTacToeFrame();
+        newGame();
+        frame.setVisible(true);
     }
 
    
-    /**
-     * Main
-     */
-    public static void main(String[] args) {
-
-        game = new TicTacToeFrame();
-        game.playGame();
     
     
-    }
 }
 
